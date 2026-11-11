@@ -73,73 +73,74 @@ def yin_pitch(chunk):
     confidence = d_prime[best]
     return freq, confidence
 
-csv_path = os.path.join(TONES_DIR, "answer_key.csv")
-results = []
-errors = []
-lib_errors = []
-no_pitch = 0
+if __name__ == "__main__":
+    csv_path = os.path.join(TONES_DIR, "answer_key.csv")
+    results = []
+    errors = []
+    lib_errors = []
+    no_pitch = 0
 
-with open(csv_path, newline="", encoding="utf-8") as f:
-    reader = csv.DictReader(f)
-    for row in reader:
-        wav_path = os.path.join(TONES_DIR, row["filename"])
-        audio,sr = sf.read(wav_path)
-        mid = len(audio) //2
-        chunk = audio[mid: mid +Chunk_Size]
-        freq, conf = yin_pitch(chunk)
-        lib_freq = librosa.yin(
-            chunk, 
-            fmin=min_freq, 
-            fmax=max_freq, 
-            sr=Sample_Rate, 
-            frame_length=Chunk_Size, 
-            center=False, 
-            trough_threshold=0.15
-        )[0]
-        if freq == -1:
-            no_pitch += 1
-            continue
-        true_freq = float(row["true_freq_hz"])
-        cents_error = 1200 * np.log2(freq / true_freq)
-        lib_error = 1200 * np.log2(lib_freq / true_freq)
-        errors.append(cents_error)
-        lib_errors.append(lib_error)
-        results.append(
-            [row["filename"], true_freq, round(freq, 3), round(cents_error, 3), conf, round(lib_freq, 3), round(lib_error, 3)])
-    errors = np.array(errors)
-    lib_errors = np.array(lib_errors)
+    with open(csv_path, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            wav_path = os.path.join(TONES_DIR, row["filename"])
+            audio,sr = sf.read(wav_path)
+            mid = len(audio) //2
+            chunk = audio[mid: mid +Chunk_Size]
+            freq, conf = yin_pitch(chunk)
+            lib_freq = librosa.yin(
+                chunk, 
+                fmin=min_freq, 
+                fmax=max_freq, 
+                sr=Sample_Rate, 
+                frame_length=Chunk_Size, 
+                center=False, 
+                trough_threshold=0.15
+            )[0]
+            if freq == -1:
+                no_pitch += 1
+                continue
+            true_freq = float(row["true_freq_hz"])
+            cents_error = 1200 * np.log2(freq / true_freq)
+            lib_error = 1200 * np.log2(lib_freq / true_freq)
+            errors.append(cents_error)
+            lib_errors.append(lib_error)
+            results.append(
+                [row["filename"], true_freq, round(freq, 3), round(cents_error, 3), conf, round(lib_freq, 3), round(lib_error, 3)])
+        errors = np.array(errors)
+        lib_errors = np.array(lib_errors)
 
 
-total = len(errors)
-within_3 = np.sum(np.abs(errors) <= 3)
-print("Total:", total)
-print("Within 3 cents:", within_3)
-print("Percent:", within_3 / total * 100)
-print("Max error:", np.max(np.abs(errors)))
-print("Average error:", np.mean(errors))
-print("No pitch:", no_pitch)
+    total = len(errors)
+    within_3 = np.sum(np.abs(errors) <= 3)
+    print("Total:", total)
+    print("Within 3 cents:", within_3)
+    print("Percent:", within_3 / total * 100)
+    print("Max error:", np.max(np.abs(errors)))
+    print("Average error:", np.mean(errors))
+    print("No pitch:", no_pitch)
 
-results_dir = os.path.join(os.path.dirname(__file__), "results")
-os.makedirs(results_dir, exist_ok=True)
-out_csv = os.path.join(results_dir, "yin_python_results.csv")
-with open(out_csv, mode="w", newline="", encoding="utf-8") as f:
-    writer = csv.writer(f)
-    writer.writerow([
-        "filename",
-        "true_freq_hz",
-        "measured_freq_hz",
-        "cents_error",
-        "confidence",
-        "librosa_freq_hz",
-        "librosa_cents_error",
-        ])
-    writer.writerows(results)
+    results_dir = os.path.join(os.path.dirname(__file__), "results")
+    os.makedirs(results_dir, exist_ok=True)
+    out_csv = os.path.join(results_dir, "yin_python_results.csv")
+    with open(out_csv, mode="w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow([
+            "filename",
+            "true_freq_hz",
+            "measured_freq_hz",
+            "cents_error",
+            "confidence",
+            "librosa_freq_hz",
+            "librosa_cents_error",
+            ])
+        writer.writerows(results)
 
-print(f"Saved {len(results)} rows to {out_csv}")
-lib_within_3 = np.sum(np.abs(lib_errors) <= 3)
-print("Librosa Within 3 cents:", lib_within_3)
-print("Librosa Percent:", lib_within_3 / total * 100)
-print("Librosa Max error:", np.max(np.abs(lib_errors)))
-print("Librosa Average error:", np.mean(lib_errors))
+    print(f"Saved {len(results)} rows to {out_csv}")
+    lib_within_3 = np.sum(np.abs(lib_errors) <= 3)
+    print("Librosa Within 3 cents:", lib_within_3)
+    print("Librosa Percent:", lib_within_3 / total * 100)
+    print("Librosa Max error:", np.max(np.abs(lib_errors)))
+    print("Librosa Average error:", np.mean(lib_errors))
 
-print("Max diff b/t my YIN + librosa:", np.max(np.abs(errors - lib_errors)))
+    print("Max diff b/t my YIN + librosa:", np.max(np.abs(errors - lib_errors)))

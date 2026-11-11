@@ -3,7 +3,10 @@ import librosa
 import numpy as np
 import re
 import csv
+import os
 
 IOWA_DIR = os.path.join(os.path.dirname(__file__),"iowa")
 files = sorted([f for f in os.listdir(IOWA_DIR) if f.endswith("aiff")])
 print(len(files))
+for f in files:
+    print(f)
