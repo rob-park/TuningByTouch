@@ -20,3 +20,12 @@ fade_out = np.linspace(1,0,Fade_Samples)
 rows = []
 
 #Block 3
+count = 0
+for midi in range(55,94):
+    base_freq = (440 * 2**((midi-69)/12))
+    note = Note_Names[midi % 12] + str(midi // 12-1)
+    for offset in Offsets:
+        freq = base_freq * 2 ** (offset / 1200) 
+        count += 1
+        print(f"Note: {note} Offset: {offset} Frequency: {freq}")
+
