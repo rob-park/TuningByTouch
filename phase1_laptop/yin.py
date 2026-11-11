@@ -1,3 +1,4 @@
+import librosa
 import numpy as np
 import soundfile as sf
 import os
@@ -75,6 +76,7 @@ def yin_pitch(chunk):
 csv_path = os.path.join(TONES_DIR, "answer_key.csv")
 results = []
 errors = []
+lib_errors = []
 no_pitch = 0
 
 with open(csv_path, newline="", encoding="utf-8") as f:
@@ -85,15 +87,27 @@ with open(csv_path, newline="", encoding="utf-8") as f:
         mid = len(audio) //2
         chunk = audio[mid: mid +Chunk_Size]
         freq, conf = yin_pitch(chunk)
+        lib_freq = librosa.yin(
+            chunk, 
+            fmin=min_freq, 
+            fmax=max_freq, 
+            sr=Sample_Rate, 
+            frame_length=Chunk_Size, 
+            center=False, 
+            trough_threshold=0.15
+        )[0]
         if freq == -1:
             no_pitch += 1
             continue
         true_freq = float(row["true_freq_hz"])
         cents_error = 1200 * np.log2(freq / true_freq)
+        lib_error = 1200 * np.log2(lib_freq / true_freq)
         errors.append(cents_error)
+        lib_errors.append(lib_error)
         results.append(
-            [row["filename"], true_freq, round(freq, 3), round(cents_error, 3), conf])
+            [row["filename"], true_freq, round(freq, 3), round(cents_error, 3), conf, round(lib_freq, 3), round(lib_error, 3)])
     errors = np.array(errors)
+    lib_errors = np.array(lib_errors)
 
 
 total = len(errors)
@@ -116,7 +130,16 @@ with open(out_csv, mode="w", newline="", encoding="utf-8") as f:
         "measured_freq_hz",
         "cents_error",
         "confidence",
+        "librosa_freq_hz",
+        "librosa_cents_error",
         ])
     writer.writerows(results)
 
 print(f"Saved {len(results)} rows to {out_csv}")
+lib_within_3 = np.sum(np.abs(lib_errors) <= 3)
+print("Librosa Within 3 cents:", lib_within_3)
+print("Librosa Percent:", lib_within_3 / total * 100)
+print("Librosa Max error:", np.max(np.abs(lib_errors)))
+print("Librosa Average error:", np.mean(lib_errors))
+
+print("Max diff b/t my YIN + librosa:", np.max(np.abs(errors - lib_errors)))
