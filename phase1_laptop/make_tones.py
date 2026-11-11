@@ -11,4 +11,12 @@ Offsets = [0,2,-2,4,-4,6,-6,10,-10]
 Note_Names = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
 TONES_DIR = os.path.join(os.path.dirname(__file__), "tones")
 os.makedirs(TONES_DIR, exist_ok=True)
-print(Fade_Samples)
+
+#Block 2
+num_samples = Sample_Rate * Duration
+t = np.arange(num_samples) / Sample_Rate
+fade_in = np.linspace(0,1,Fade_Samples)
+fade_out = np.linspace(1,0,Fade_Samples)
+rows = []
+
+#Block 3
