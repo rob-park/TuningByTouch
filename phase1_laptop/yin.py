@@ -14,13 +14,9 @@ file_path = os.path.join(TONES_DIR, "A4_+0c_440.00Hz.wav")
 audio, sr = sf.read(file_path)
 mid = len(audio)//2
 chunk = audio[mid: mid + Chunk_Size]
-print(sr)
-print(len(audio))
-print(len(chunk))
+
 
 #block 2
-def add(a,b):
-    return a + b
 
 def difference(chunk):
     d = np.zeros(tau_max + 1)
@@ -29,9 +25,6 @@ def difference(chunk):
         shifted = chunk[tau : tau + window]
         d[tau] = np.sum((original - shifted) ** 2)
     return d
-
-d = difference(chunk)
-print(d[100], d[109], d[120])
 
 #2b
 def normalize(d):
@@ -46,8 +39,6 @@ def normalize(d):
             d_prime[tau] = d[tau] *tau /running
     return d_prime
 
-d_prime = normalize(d)
-print(d_prime[100], d_prime[109], d_prime[120])
 
 #2c
 def find_dip(d_prime, threshold =0.15):
@@ -59,20 +50,30 @@ def find_dip(d_prime, threshold =0.15):
             return tau
     return -1
 
-best = find_dip(d_prime)
-print(best, Sample_Rate / best)
 
 #2d
-def interpolate(d_prime, best):
-    if best <= 0 or best >= len(d_prime) -1:
+def interpolate(d, best):
+    if best <= 0 or best >= len(d) -1:
         return float(best)
-    s0 = d_prime[best-1]
-    s1 = d_prime[best]
-    s2 = d_prime[best+1]
+    s0 = d[best-1]
+    s1 = d[best]
+    s2 = d[best+1]
     denom = s0 -2 *s1 +s2
     if denom ==0:
         return float(best)
     return best +0.5*(s0-s2)/denom
 
-better = interpolate(d, best)
-print(better, Sample_Rate / better)
+
+def yin_pitch(chunk):
+    d = difference(chunk)
+    d_prime = normalize(d)
+    best = find_dip(d_prime)
+    if best == -1:
+        return -1,1.0
+    better = interpolate(d,best)
+    freq=Sample_Rate/better
+    confidence = d_prime[best]
+    return freq, confidence
+
+freq, conf = yin_pitch(chunk)
+print(freq, conf)
