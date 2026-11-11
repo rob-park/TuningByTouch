@@ -33,3 +33,18 @@ def difference(chunk):
 d = difference(chunk)
 print(d[100], d[109], d[120])
 
+#2b
+def normalize(d):
+    d_prime = np.zeros(len(d))
+    d_prime[0] = 1.0
+    running = 0.0
+    for tau in range(1,len(d)):
+        running += d[tau]
+        if running ==0:
+            d_prime[tau] = 1.0
+        else:
+            d_prime[tau] = d[tau] *tau /running
+    return d_prime
+
+d_prime = normalize(d)
+print(d_prime[100], d_prime[109], d_prime[120])
