@@ -1,6 +1,7 @@
 import numpy as np
 import soundfile as sf
 import os
+import csv
 Sample_Rate = 48000
 Chunk_Size = 1024
 #block 2:
@@ -10,10 +11,6 @@ tau_min = int(Sample_Rate/ max_freq)
 tau_max = int(Sample_Rate / min_freq)
 window = Chunk_Size - tau_max
 TONES_DIR = os.path.join(os.path.dirname(__file__), "tones")
-file_path = os.path.join(TONES_DIR, "A4_+0c_440.00Hz.wav")
-audio, sr = sf.read(file_path)
-mid = len(audio)//2
-chunk = audio[mid: mid + Chunk_Size]
 
 
 #block 2
@@ -75,5 +72,51 @@ def yin_pitch(chunk):
     confidence = d_prime[best]
     return freq, confidence
 
-freq, conf = yin_pitch(chunk)
-print(freq, conf)
+csv_path = os.path.join(TONES_DIR, "answer_key.csv")
+results = []
+errors = []
+no_pitch = 0
+
+with open(csv_path, newline="", encoding="utf-8") as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        wav_path = os.path.join(TONES_DIR, row["filename"])
+        audio,sr = sf.read(wav_path)
+        mid = len(audio) //2
+        chunk = audio[mid: mid +Chunk_Size]
+        freq, conf = yin_pitch(chunk)
+        if freq == -1:
+            no_pitch += 1
+            continue
+        true_freq = float(row["true_freq_hz"])
+        cents_error = 1200 * np.log2(freq / true_freq)
+        errors.append(cents_error)
+        results.append(
+            [row["filename"], true_freq, round(freq, 3), round(cents_error, 3), conf])
+    errors = np.array(errors)
+
+
+total = len(errors)
+within_3 = np.sum(np.abs(errors) <= 3)
+print("Total:", total)
+print("Within 3 cents:", within_3)
+print("Percent:", within_3 / total * 100)
+print("Max error:", np.max(np.abs(errors)))
+print("Average error:", np.mean(errors))
+print("No pitch:", no_pitch)
+
+results_dir = os.path.join(os.path.dirname(__file__), "results")
+os.makedirs(results_dir, exist_ok=True)
+out_csv = os.path.join(results_dir, "yin_python_results.csv")
+with open(out_csv, mode="w", newline="", encoding="utf-8") as f:
+    writer = csv.writer(f)
+    writer.writerow([
+        "filename",
+        "true_freq_hz",
+        "measured_freq_hz",
+        "cents_error",
+        "confidence",
+        ])
+    writer.writerows(results)
+
+print(f"Saved {len(results)} rows to {out_csv}")
