@@ -27,5 +27,13 @@ for midi in range(55,94):
     for offset in Offsets:
         freq = base_freq * 2 ** (offset / 1200) 
         count += 1
+        wave = np.zeros(len(t)) #Block 4
+        for k in range(1, Num_Harmonics +1):
+            wave += (1/k) * np.sin(2 * np.pi * k * freq * t)
+            wave = wave / np.max(np.abs(wave)) * Volume
+            wave[:Fade_Samples] *= fade_in
+            wave[-Fade_Samples:] *= fade_out
+            filename = f"{note}_{offset:+d}c_{freq:.2f}Hz.wav"
+            sf.write(os.path.join(TONES_DIR, filename), wave, Sample_Rate)
+            rows.append([filename, note, midi, offset, round(freq, 2)])
         print(f"Note: {note} Offset: {offset} Frequency: {freq}")
-
