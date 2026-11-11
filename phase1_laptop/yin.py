@@ -48,3 +48,16 @@ def normalize(d):
 
 d_prime = normalize(d)
 print(d_prime[100], d_prime[109], d_prime[120])
+
+
+def find_dip(d_prime, threshould =0.15):
+    upper_bound = min(tau_max, len(d_prime) -1)
+    for tau in range(tau_min,upper_bound,+1):
+        if d_prime[tau] <threshould:
+            while tau +1<=upper_bound and d_prime[tau+1] <d_prime[tau]:
+                tau +=  1
+            return tau
+    return -1
+
+best = find_dip(d_prime)
+print(best, Sample_Rate / best)
