@@ -9,10 +9,7 @@ PORT = "COM6"
 BAUD = 115200
 TONES_DIR = os.path.join(os.path.dirname(__file__), "..", "phase1_laptop", "tones")
 ANSWER_KEY = os.path.join(TONES_DIR, "answer_key.csv")
-
-KEY_BASENAME = os.path.basename(ANSWER_KEY)
-RESULTS_FILENAME = KEY_BASENAME.replace("answer_key", "results")
-RESULTS_PATH = os.path.join(os.path.dirname(__file__), RESULTS_FILENAME)
+RESULTS_PATH = os.path.join(os.path.dirname(__file__), "results_motors_off.csv")
 
 REPEATS = 1
 SILENCE_S = 1.0
@@ -72,9 +69,9 @@ def main():
                     total_count += 1
                     
                     if total_count % 25 == 0:
-                        print(f"Processed {total_count} tones...")
+                        print(f"Processed {total_count}/{len(tones) * REPEATS} tones...")
                         
-        print(f"Test complete! Results saved to {RESULTS_FILENAME}")
+        print("Test complete! Results saved to results_motors_off.csv")
 
     except KeyboardInterrupt:
         print("\nInterrupted by user, shutting down safely...")
