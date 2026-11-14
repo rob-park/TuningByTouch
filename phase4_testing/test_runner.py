@@ -35,7 +35,7 @@ def main():
         with open(ANSWER_KEY, mode="r", encoding="utf-8") as f:
             tones = list(csv.DictReader(f))
             
-        tones = tones[:3]
+        tones = tones[-3:]          # TEMP - A6 check
         
         header = ["filename", "note", "midi", "offset_cents", "true_freq_hz", "repeat", "t_s", "freq_hz", "cents", "confidence", "calc_us"]
         
