@@ -14,7 +14,7 @@ const int   TAU_MIN     = SAMPLE_RATE / MAX_FREQ;
 const int   TAU_MAX     = SAMPLE_RATE / MIN_FREQ;
 const int   WINDOW      = CHUNK_SIZE - TAU_MAX;
 const float THRESHOLD   = 0.15;
-const float SILENCE_RMS = 12800.0f;
+const float SILENCE_RMS = 40000.0f;
 
 int32_t raw[CHUNK_SIZE];
 float   buf[CHUNK_SIZE];
