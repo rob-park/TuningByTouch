@@ -11,7 +11,7 @@ TONES_DIR = os.path.join(os.path.dirname(__file__), "..", "phase1_laptop", "tone
 ANSWER_KEY = os.path.join(TONES_DIR, "answer_key.csv")
 RESULTS_PATH = os.path.join(os.path.dirname(__file__), "results_motors_off.csv")
 
-REPEATS = 1
+REPEATS = 5
 SILENCE_S = 1.0
 
 def test_tone(ser, filename):
@@ -35,8 +35,6 @@ def main():
         with open(ANSWER_KEY, mode="r", encoding="utf-8") as f:
             tones = list(csv.DictReader(f))
             
-        tones = tones[-3:]          # TEMP - A6 check
-        
         header = ["filename", "note", "midi", "offset_cents", "true_freq_hz", "repeat", "t_s", "freq_hz", "cents", "confidence", "calc_us"]
         
         with open(RESULTS_PATH, mode="w", newline="", encoding="utf-8") as out_f:
