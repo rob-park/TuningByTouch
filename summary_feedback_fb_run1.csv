@@ -1,0 +1,3 @@
+Group,Offsets,Tones done,Valid,Correct,% correct,Target,Tones with flicker,Excluded (status:count)
+Clear,"+-2, +-10",780,780,771,98.8%,95%,12,none
+Near cutoff,"+-4, +-6",780,780,768,98.5%,80%,79,none

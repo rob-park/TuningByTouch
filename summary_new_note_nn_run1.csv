@@ -1,0 +1,7 @@
+Condition,Category,Note,Offset (cents),Planned,Valid,Excluded (status:count),Median raw delay (ms),Mean raw (ms),SD raw (ms),Min raw (ms),Max raw (ms),Median corrected (ms),% under target (raw) / controls quiet,Note-off triggers (controls)
+G3_sharp20,new_note,G3,20.00,8,8,none,145.61,141.58,15.28,121.31,166.27,145.26,100%,N/A
+A4_sharp20,new_note,A4,20.00,8,8,none,104.85,102.54,13.82,85.25,125.13,112.19,100%,N/A
+A6_sharp20,new_note,A6,20.00,8,8,none,127.28,128.13,12.66,114.10,145.85,134.61,100%,N/A
+G3_intune,new_note_control,G3,0.00,4,4,none,NaN,NaN,NaN,NaN,NaN,NaN,4/4 quiet,1
+A4_intune,new_note_control,A4,0.00,4,4,none,NaN,NaN,NaN,NaN,NaN,NaN,4/4 quiet,2
+A6_intune,new_note_control,A6,0.00,4,4,none,NaN,NaN,NaN,NaN,NaN,NaN,4/4 quiet,0

@@ -1,0 +1,165 @@
+import csv
+import sys
+import threading
+import time
+from collections import Counter
+from datetime import datetime
+
+import numpy as np
+import serial
+import sounddevice as sd
+
+RUN_TAG = "os_run1"
+FIRMWARE_VERSION = "settle=2"
+SERIAL_PORT = "COM6"
+BAUD = 115200
+SPK_DEV = 3
+VOLUME = 0.5                   
+SR = 48000
+A4 = 440.0
+STRINGS = [("G", A4 / 1.5 / 1.5), ("D", A4 / 1.5), ("A", A4), ("E", A4 * 1.5)]
+TRIALS = 5
+
+PRE_SILENCE = 0.5
+TONE_DUR = 3.0
+POST_SILENCE = 0.8
+FADE = 0.01
+ONSET_SEARCH = 1.5
+STEADY_FROM = 0.5
+END_GUARD = 0.1
+OUTLIER_CENTS = 50   
+
+STATE_NAMES = {0: "In tune", 1: "Sharp", 2: "Flat"}
+
+
+class SerialReader(threading.Thread):
+    def __init__(self, port, baud):
+        super().__init__(daemon=True)
+        self.ser = serial.Serial()
+        self.ser.port, self.ser.baudrate, self.ser.timeout = port, baud, 0.2
+        self.ser.dtr = False
+        self.ser.rts = False
+        self.ser.open()
+        self.lines, self.lock, self.running = [], threading.Lock(), True
+
+    def run(self):
+        while self.running:
+            try:
+                raw = self.ser.readline()
+            except Exception:
+                continue
+            if not raw:
+                continue
+            now = time.perf_counter()
+            text = raw.decode("utf-8", errors="replace").strip()
+            parts = text.split(",")
+            if len(parts) != 5:
+                continue
+            try:
+                freq, state = float(parts[0]), int(parts[4])
+            except ValueError:
+                continue
+            with self.lock:
+                self.lines.append((now, freq, state, text))
+
+    def since(self, t0):
+        with self.lock:
+            return [x for x in self.lines if x[0] >= t0]
+
+    def stop(self):
+        self.running = False
+        try:
+            self.ser.close()
+        except Exception:
+            pass
+
+
+def make_audio(freq):
+    t = np.arange(int(SR * TONE_DUR)) / SR
+    tone = np.sin(2 * np.pi * freq * t)
+    n = int(FADE * SR)
+    tone[:n] *= np.linspace(0, 1, n)
+    tone[-n:] *= np.linspace(1, 0, n)
+    return (VOLUME * np.concatenate([np.zeros(int(SR * PRE_SILENCE)), tone,
+                                     np.zeros(int(SR * POST_SILENCE))])).astype(np.float32)
+
+
+def judge(lines, play_start, target):
+    heard = [l for l in lines if l[1] > 0 and play_start <= l[0] <= play_start + PRE_SILENCE + ONSET_SEARCH]
+    if not heard:
+        return {"status": "NO_PITCH", "freq": "", "feedback": "", "n": 0, "outliers": 0}
+    onset = heard[0][0]
+    steady = [l for l in lines if onset + STEADY_FROM <= l[0] <= onset + TONE_DUR - END_GUARD]
+    if len(steady) < 5:
+        return {"status": "TOO_FEW_LINES", "freq": "", "feedback": "", "n": len(steady), "outliers": 0}
+    good = [l[1] for l in steady if l[1] > 0 and abs(1200 * np.log2(l[1] / target)) <= OUTLIER_CENTS]
+    outliers = sum(1 for l in steady if l[1] > 0) - len(good)
+    state = Counter(l[2] for l in steady).most_common(1)[0][0]
+    return {"status": "OK" if good else "NO_GOOD_READINGS",
+            "freq": f"{np.mean(good):.2f}" if good else "",
+            "feedback": STATE_NAMES.get(state, f"state {state}"),
+            "n": len(steady), "outliers": outliers}
+
+
+def main():
+    print(f"Opening {SERIAL_PORT}... (close Arduino Serial Monitor if this fails)")
+    reader = SerialReader(SERIAL_PORT, BAUD)
+    reader.start()
+    time.sleep(2.0)
+    if not reader.since(time.perf_counter() - 2.0):
+        print("No data lines from the device in 2 s. Check the port and cable. Stopping.")
+        reader.stop()
+        sys.exit(1)
+    sd.play(np.zeros(int(0.3 * SR), dtype=np.float32), SR, device=SPK_DEV)
+    sd.wait()
+
+    results = []
+    raw_rows = []
+    try:
+        row = 6
+        for trial in range(1, TRIALS + 1):
+            for name, freq in STRINGS:
+                play_start = time.perf_counter()
+                sd.play(make_audio(freq), SR, device=SPK_DEV)
+                sd.wait()
+                lines = reader.since(play_start - PRE_SILENCE)
+                res = judge(lines, play_start, freq)
+                cents = (f"{1200 * np.log2(float(res['freq']) / freq):+.2f}" if res["freq"] else "")
+                print(f"row {row}: trial {trial} {name} ({freq:.2f} Hz) -> measured {res['freq'] or '-'} Hz "
+                      f"({cents} c), {res['feedback'] or '-'}"
+                      + ("" if res["status"] == "OK" else f"  <-- {res['status']}"))
+                results.append({"row": row, "trial": trial, "string": name, "target": freq, **res,
+                                "cents": cents})
+                raw_rows += [[row, f"{l[0] - play_start:.3f}", l[3]] for l in lines]
+                row += 1
+                time.sleep(0.3)
+    except KeyboardInterrupt:
+        print("\nStopped early.")
+    finally:
+        reader.stop()
+
+    with open(f"results_open_strings_{RUN_TAG}.csv", "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["Sheet row", "Trial", "String", "Pure-fifth target (Hz)", "Measured freq (Hz)",
+                    "Error vs target (cents)", "Device feedback", "Status", "Steady lines",
+                    "Outlier readings dropped", "Timestamp", "Firmware"])
+        stamp = datetime.now().isoformat(timespec="seconds")
+        for r in results:
+            w.writerow([r["row"], r["trial"], r["string"], f"{r['target']:.2f}", r["freq"], r["cents"],
+                        r["feedback"], r["status"], r["n"], r["outliers"], stamp, FIRMWARE_VERSION])
+    with open(f"raw_serial_open_strings_{RUN_TAG}.csv", "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["Sheet row", "Time from playback start (s)", "Device line"])
+        w.writerows(raw_rows)
+
+    print("\n=== Paste into Open Strings, column F (Measured freq), starting at F6 ===")
+    for r in results:
+        print(r["freq"])
+    print("\n=== Paste into Open Strings, column H (Device feedback), starting at H6 ===")
+    for r in results:
+        print(r["feedback"])
+    print(f"\nSaved results_open_strings_{RUN_TAG}.csv and raw_serial_open_strings_{RUN_TAG}.csv")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,1561 @@
+Sheet row,Device feedback (column G),Flicker count (column I)
+6,In tune,0
+7,In tune,0
+8,In tune,0
+9,In tune,2
+10,Sharp,0
+11,Flat,0
+12,Sharp,0
+13,Flat,0
+14,In tune,0
+15,In tune,0
+16,In tune,0
+17,In tune,0
+18,Sharp,0
+19,Flat,0
+20,Sharp,0
+21,Flat,0
+22,In tune,0
+23,In tune,0
+24,In tune,2
+25,In tune,0
+26,Sharp,0
+27,Flat,0
+28,Sharp,0
+29,Flat,0
+30,In tune,0
+31,In tune,0
+32,In tune,0
+33,In tune,0
+34,Sharp,0
+35,Flat,0
+36,Sharp,0
+37,Flat,0
+38,In tune,0
+39,In tune,0
+40,In tune,2
+41,In tune,2
+42,Sharp,0
+43,Flat,0
+44,Sharp,0
+45,Flat,0
+46,In tune,0
+47,In tune,0
+48,In tune,0
+49,In tune,2
+50,Sharp,0
+51,Flat,0
+52,Sharp,0
+53,Flat,0
+54,In tune,0
+55,In tune,0
+56,In tune,0
+57,Flat,1
+58,Sharp,0
+59,Flat,0
+60,Sharp,0
+61,Flat,0
+62,In tune,0
+63,In tune,0
+64,In tune,0
+65,In tune,0
+66,Sharp,0
+67,Flat,0
+68,Sharp,0
+69,Flat,0
+70,In tune,0
+71,In tune,0
+72,In tune,0
+73,In tune,0
+74,Sharp,0
+75,Flat,0
+76,Sharp,0
+77,Flat,0
+78,In tune,0
+79,In tune,0
+80,In tune,0
+81,In tune,2
+82,Sharp,0
+83,Flat,0
+84,Sharp,0
+85,Flat,0
+86,In tune,0
+87,In tune,0
+88,In tune,0
+89,In tune,2
+90,Sharp,0
+91,Flat,0
+92,Sharp,0
+93,Flat,0
+94,In tune,0
+95,In tune,0
+96,In tune,0
+97,In tune,0
+98,Sharp,0
+99,Flat,0
+100,Sharp,0
+101,Flat,0
+102,In tune,0
+103,In tune,0
+104,In tune,0
+105,In tune,2
+106,Sharp,0
+107,Flat,0
+108,Sharp,0
+109,Flat,0
+110,In tune,0
+111,In tune,0
+112,In tune,0
+113,In tune,0
+114,Sharp,0
+115,Flat,0
+116,Sharp,0
+117,Flat,0
+118,In tune,0
+119,In tune,0
+120,In tune,0
+121,In tune,2
+122,Sharp,0
+123,Flat,0
+124,Sharp,0
+125,Flat,0
+126,In tune,0
+127,In tune,0
+128,In tune,0
+129,In tune,0
+130,Sharp,0
+131,Flat,0
+132,Sharp,0
+133,Flat,0
+134,In tune,0
+135,In tune,0
+136,In tune,2
+137,In tune,2
+138,Sharp,0
+139,Flat,0
+140,Sharp,0
+141,Flat,0
+142,In tune,0
+143,In tune,0
+144,In tune,2
+145,In tune,0
+146,Sharp,0
+147,Flat,0
+148,Sharp,0
+149,Flat,0
+150,In tune,0
+151,In tune,0
+152,In tune,0
+153,In tune,0
+154,Sharp,0
+155,Flat,0
+156,Sharp,0
+157,Flat,0
+158,In tune,0
+159,In tune,0
+160,In tune,0
+161,In tune,0
+162,Sharp,0
+163,Flat,0
+164,Sharp,0
+165,Flat,0
+166,In tune,0
+167,In tune,0
+168,In tune,0
+169,In tune,0
+170,Sharp,0
+171,Flat,0
+172,Sharp,0
+173,Flat,0
+174,In tune,0
+175,In tune,0
+176,In tune,2
+177,In tune,0
+178,Sharp,0
+179,Flat,0
+180,Sharp,0
+181,Flat,0
+182,In tune,0
+183,In tune,0
+184,In tune,0
+185,In tune,0
+186,Sharp,0
+187,Flat,0
+188,Sharp,0
+189,Flat,0
+190,In tune,0
+191,In tune,0
+192,In tune,0
+193,In tune,0
+194,Sharp,0
+195,Flat,0
+196,Sharp,0
+197,Flat,0
+198,In tune,0
+199,In tune,0
+200,In tune,0
+201,In tune,2
+202,In tune,12
+203,Flat,0
+204,In tune,18
+205,Flat,0
+206,In tune,0
+207,In tune,0
+208,In tune,0
+209,In tune,0
+210,In tune,17
+211,Flat,0
+212,In tune,18
+213,Flat,0
+214,In tune,0
+215,In tune,0
+216,In tune,0
+217,In tune,2
+218,Sharp,0
+219,Flat,0
+220,Sharp,0
+221,Flat,0
+222,In tune,0
+223,In tune,0
+224,In tune,0
+225,In tune,0
+226,Sharp,0
+227,Flat,0
+228,Sharp,0
+229,Flat,0
+230,In tune,0
+231,In tune,0
+232,In tune,0
+233,In tune,0
+234,Sharp,0
+235,Flat,0
+236,Sharp,0
+237,Flat,0
+238,In tune,0
+239,In tune,0
+240,In tune,0
+241,In tune,0
+242,Sharp,0
+243,Flat,0
+244,Sharp,0
+245,Flat,0
+246,In tune,0
+247,In tune,0
+248,In tune,0
+249,In tune,0
+250,Sharp,0
+251,Flat,0
+252,Sharp,0
+253,Flat,0
+254,In tune,0
+255,In tune,0
+256,In tune,0
+257,In tune,0
+258,Sharp,0
+259,Flat,0
+260,Sharp,0
+261,Flat,0
+262,In tune,0
+263,In tune,0
+264,In tune,0
+265,In tune,0
+266,Sharp,0
+267,Flat,0
+268,Sharp,0
+269,Flat,0
+270,In tune,0
+271,In tune,0
+272,In tune,0
+273,In tune,0
+274,Sharp,0
+275,Flat,0
+276,Sharp,0
+277,Flat,0
+278,In tune,0
+279,In tune,0
+280,In tune,0
+281,In tune,0
+282,Sharp,0
+283,Flat,0
+284,Sharp,0
+285,Flat,0
+286,In tune,0
+287,In tune,0
+288,In tune,0
+289,In tune,0
+290,Sharp,0
+291,Flat,0
+292,Sharp,0
+293,Flat,0
+294,In tune,0
+295,In tune,0
+296,In tune,0
+297,In tune,0
+298,Sharp,2
+299,Flat,0
+300,Sharp,0
+301,Flat,0
+302,In tune,0
+303,In tune,0
+304,In tune,0
+305,In tune,0
+306,Sharp,0
+307,Flat,0
+308,Sharp,0
+309,Flat,0
+310,In tune,0
+311,In tune,0
+312,In tune,0
+313,In tune,0
+314,Sharp,0
+315,Flat,0
+316,Sharp,0
+317,Flat,0
+318,In tune,0
+319,In tune,0
+320,In tune,0
+321,In tune,0
+322,Sharp,0
+323,Flat,0
+324,Sharp,0
+325,Flat,0
+326,In tune,0
+327,In tune,0
+328,In tune,0
+329,In tune,0
+330,Sharp,0
+331,Flat,0
+332,Sharp,0
+333,Flat,0
+334,In tune,0
+335,In tune,0
+336,In tune,2
+337,In tune,0
+338,Sharp,0
+339,Flat,0
+340,Sharp,0
+341,Flat,0
+342,In tune,0
+343,In tune,0
+344,In tune,0
+345,In tune,2
+346,Sharp,0
+347,Flat,0
+348,Sharp,0
+349,Flat,0
+350,In tune,0
+351,In tune,0
+352,In tune,0
+353,In tune,0
+354,Sharp,0
+355,Flat,0
+356,Sharp,0
+357,Flat,0
+358,In tune,0
+359,In tune,0
+360,In tune,0
+361,In tune,2
+362,Sharp,0
+363,Flat,0
+364,Sharp,0
+365,Flat,0
+366,In tune,0
+367,In tune,0
+368,In tune,0
+369,Flat,1
+370,Sharp,0
+371,Flat,0
+372,Sharp,0
+373,Flat,0
+374,In tune,0
+375,In tune,0
+376,In tune,0
+377,In tune,0
+378,Sharp,0
+379,Flat,0
+380,Sharp,0
+381,Flat,0
+382,In tune,0
+383,In tune,0
+384,In tune,2
+385,In tune,0
+386,Sharp,0
+387,Flat,0
+388,Sharp,0
+389,Flat,0
+390,In tune,0
+391,In tune,2
+392,In tune,0
+393,In tune,2
+394,Sharp,0
+395,Flat,0
+396,Sharp,0
+397,Flat,0
+398,In tune,0
+399,In tune,0
+400,In tune,0
+401,In tune,0
+402,Sharp,0
+403,Flat,0
+404,Sharp,0
+405,Flat,0
+406,In tune,0
+407,In tune,0
+408,In tune,0
+409,In tune,0
+410,Sharp,0
+411,Flat,0
+412,Sharp,0
+413,Flat,0
+414,In tune,0
+415,In tune,0
+416,In tune,0
+417,In tune,0
+418,Sharp,0
+419,Flat,0
+420,Sharp,0
+421,Flat,0
+422,In tune,0
+423,In tune,0
+424,In tune,0
+425,In tune,0
+426,Sharp,0
+427,Flat,0
+428,Sharp,0
+429,Flat,0
+430,In tune,0
+431,In tune,0
+432,In tune,0
+433,In tune,2
+434,Sharp,0
+435,Flat,0
+436,Sharp,0
+437,Flat,0
+438,In tune,0
+439,In tune,0
+440,In tune,0
+441,In tune,2
+442,Sharp,0
+443,Flat,0
+444,Sharp,0
+445,Flat,0
+446,In tune,0
+447,In tune,0
+448,In tune,0
+449,In tune,0
+450,Sharp,0
+451,Flat,0
+452,Sharp,0
+453,Flat,0
+454,In tune,0
+455,In tune,0
+456,In tune,0
+457,In tune,0
+458,Sharp,0
+459,Flat,0
+460,Sharp,0
+461,Flat,0
+462,In tune,0
+463,In tune,0
+464,In tune,0
+465,In tune,0
+466,Sharp,0
+467,Flat,0
+468,Sharp,0
+469,Flat,0
+470,In tune,0
+471,In tune,0
+472,In tune,0
+473,In tune,0
+474,Sharp,0
+475,Flat,0
+476,Sharp,0
+477,Flat,0
+478,In tune,0
+479,In tune,0
+480,In tune,0
+481,In tune,0
+482,Sharp,0
+483,Flat,0
+484,Sharp,0
+485,Flat,0
+486,In tune,0
+487,In tune,0
+488,In tune,0
+489,In tune,0
+490,Sharp,0
+491,Flat,0
+492,Sharp,0
+493,Flat,0
+494,In tune,0
+495,In tune,0
+496,In tune,0
+497,In tune,0
+498,Sharp,0
+499,Flat,0
+500,Sharp,0
+501,Flat,0
+502,In tune,0
+503,In tune,0
+504,In tune,0
+505,In tune,0
+506,Sharp,0
+507,Flat,0
+508,Sharp,0
+509,Flat,0
+510,In tune,0
+511,In tune,0
+512,In tune,0
+513,In tune,2
+514,In tune,18
+515,Flat,0
+516,In tune,18
+517,Flat,0
+518,In tune,0
+519,In tune,0
+520,In tune,0
+521,In tune,2
+522,In tune,18
+523,Flat,0
+524,In tune,18
+525,Flat,0
+526,In tune,0
+527,In tune,0
+528,In tune,0
+529,In tune,2
+530,Sharp,0
+531,Flat,0
+532,Sharp,0
+533,Flat,0
+534,In tune,0
+535,In tune,0
+536,In tune,0
+537,In tune,0
+538,Sharp,0
+539,Flat,0
+540,Sharp,0
+541,Flat,0
+542,In tune,0
+543,In tune,0
+544,In tune,0
+545,In tune,0
+546,Sharp,0
+547,Flat,0
+548,Sharp,0
+549,Flat,0
+550,In tune,0
+551,In tune,0
+552,In tune,0
+553,In tune,0
+554,Sharp,0
+555,Flat,0
+556,Sharp,0
+557,Flat,0
+558,In tune,0
+559,In tune,0
+560,In tune,0
+561,In tune,0
+562,Sharp,0
+563,Flat,0
+564,Sharp,0
+565,Flat,0
+566,In tune,0
+567,In tune,0
+568,In tune,0
+569,In tune,0
+570,Sharp,0
+571,Flat,0
+572,Sharp,0
+573,Flat,0
+574,In tune,0
+575,In tune,0
+576,In tune,0
+577,In tune,0
+578,Sharp,0
+579,Flat,0
+580,Sharp,0
+581,Flat,0
+582,In tune,0
+583,In tune,0
+584,In tune,0
+585,In tune,0
+586,Sharp,0
+587,Flat,0
+588,Sharp,0
+589,Flat,0
+590,In tune,0
+591,In tune,0
+592,In tune,0
+593,In tune,0
+594,Sharp,0
+595,Flat,0
+596,Sharp,0
+597,Flat,0
+598,In tune,0
+599,In tune,0
+600,In tune,0
+601,In tune,0
+602,Sharp,0
+603,Flat,0
+604,Sharp,0
+605,Flat,0
+606,In tune,0
+607,In tune,0
+608,In tune,0
+609,In tune,0
+610,Sharp,2
+611,Flat,0
+612,Sharp,0
+613,Flat,0
+614,In tune,0
+615,In tune,0
+616,In tune,0
+617,In tune,0
+618,Sharp,0
+619,Flat,0
+620,Sharp,0
+621,Flat,0
+622,In tune,0
+623,In tune,0
+624,In tune,0
+625,In tune,0
+626,Sharp,0
+627,Flat,0
+628,Sharp,0
+629,Flat,0
+630,In tune,0
+631,In tune,0
+632,In tune,0
+633,In tune,2
+634,Sharp,0
+635,Flat,0
+636,Sharp,0
+637,Flat,0
+638,In tune,0
+639,In tune,0
+640,In tune,0
+641,In tune,0
+642,Sharp,0
+643,Flat,0
+644,Sharp,0
+645,Flat,0
+646,In tune,0
+647,In tune,0
+648,In tune,2
+649,In tune,0
+650,Sharp,0
+651,Flat,0
+652,Sharp,0
+653,Flat,0
+654,In tune,0
+655,In tune,0
+656,In tune,0
+657,In tune,0
+658,Sharp,0
+659,Flat,0
+660,Sharp,0
+661,Flat,0
+662,In tune,0
+663,In tune,0
+664,In tune,2
+665,In tune,0
+666,Sharp,0
+667,Flat,0
+668,Sharp,0
+669,Flat,0
+670,In tune,0
+671,In tune,0
+672,In tune,0
+673,In tune,0
+674,Sharp,4
+675,Flat,0
+676,Sharp,0
+677,Flat,0
+678,In tune,0
+679,In tune,0
+680,In tune,0
+681,In tune,2
+682,Sharp,0
+683,Flat,0
+684,Sharp,0
+685,Flat,0
+686,In tune,0
+687,In tune,0
+688,In tune,0
+689,In tune,0
+690,Sharp,0
+691,Flat,0
+692,Sharp,0
+693,Flat,0
+694,In tune,0
+695,In tune,0
+696,In tune,0
+697,In tune,0
+698,Sharp,0
+699,Flat,0
+700,Sharp,0
+701,Flat,0
+702,In tune,0
+703,In tune,0
+704,In tune,0
+705,In tune,2
+706,Sharp,0
+707,Flat,0
+708,Sharp,0
+709,Flat,0
+710,In tune,0
+711,In tune,0
+712,In tune,0
+713,In tune,0
+714,Sharp,0
+715,Flat,0
+716,Sharp,0
+717,Flat,0
+718,In tune,0
+719,In tune,0
+720,In tune,0
+721,In tune,0
+722,Sharp,0
+723,Flat,0
+724,Sharp,0
+725,Flat,0
+726,In tune,0
+727,In tune,0
+728,In tune,0
+729,In tune,2
+730,Sharp,0
+731,Flat,0
+732,Sharp,0
+733,Flat,0
+734,In tune,0
+735,In tune,0
+736,In tune,0
+737,In tune,0
+738,Sharp,0
+739,Flat,0
+740,Sharp,0
+741,Flat,0
+742,In tune,0
+743,In tune,0
+744,In tune,0
+745,In tune,2
+746,Sharp,0
+747,Flat,0
+748,Sharp,0
+749,Flat,0
+750,In tune,0
+751,In tune,0
+752,In tune,0
+753,In tune,2
+754,Sharp,0
+755,Flat,0
+756,Sharp,0
+757,Flat,0
+758,In tune,0
+759,In tune,0
+760,In tune,0
+761,In tune,2
+762,Sharp,0
+763,Flat,0
+764,Sharp,0
+765,Flat,0
+766,In tune,0
+767,In tune,0
+768,In tune,0
+769,In tune,0
+770,Sharp,0
+771,Flat,0
+772,Sharp,0
+773,Flat,0
+774,In tune,0
+775,In tune,0
+776,In tune,2
+777,In tune,0
+778,Sharp,0
+779,Flat,0
+780,Sharp,0
+781,Flat,0
+782,In tune,0
+783,In tune,0
+784,In tune,0
+785,In tune,0
+786,Sharp,0
+787,Flat,0
+788,Sharp,0
+789,Flat,0
+790,In tune,0
+791,In tune,0
+792,In tune,0
+793,In tune,0
+794,Sharp,0
+795,Flat,0
+796,Sharp,0
+797,Flat,0
+798,In tune,0
+799,In tune,0
+800,In tune,0
+801,In tune,0
+802,Sharp,0
+803,Flat,0
+804,Sharp,0
+805,Flat,0
+806,In tune,0
+807,In tune,0
+808,In tune,2
+809,In tune,0
+810,Sharp,0
+811,Flat,0
+812,Sharp,0
+813,Flat,0
+814,In tune,0
+815,In tune,0
+816,In tune,0
+817,In tune,0
+818,Sharp,0
+819,Flat,0
+820,Sharp,0
+821,Flat,0
+822,In tune,0
+823,In tune,0
+824,In tune,0
+825,In tune,0
+826,In tune,17
+827,Flat,0
+828,In tune,18
+829,Flat,0
+830,In tune,0
+831,In tune,0
+832,In tune,4
+833,In tune,0
+834,In tune,18
+835,Flat,0
+836,Sharp,4
+837,Flat,0
+838,In tune,0
+839,In tune,0
+840,In tune,0
+841,In tune,2
+842,Sharp,0
+843,Flat,0
+844,Sharp,0
+845,Flat,0
+846,In tune,0
+847,In tune,0
+848,In tune,0
+849,In tune,0
+850,Sharp,0
+851,Flat,0
+852,Sharp,0
+853,Flat,0
+854,In tune,0
+855,In tune,0
+856,In tune,0
+857,In tune,0
+858,Sharp,0
+859,Flat,0
+860,Sharp,0
+861,Flat,0
+862,In tune,0
+863,In tune,0
+864,In tune,0
+865,In tune,0
+866,Sharp,0
+867,Flat,0
+868,Sharp,0
+869,Flat,0
+870,In tune,0
+871,In tune,0
+872,In tune,0
+873,In tune,0
+874,Sharp,0
+875,Flat,0
+876,Sharp,0
+877,Flat,0
+878,In tune,0
+879,In tune,0
+880,In tune,0
+881,In tune,0
+882,Sharp,0
+883,Flat,0
+884,Sharp,0
+885,Flat,0
+886,In tune,0
+887,In tune,0
+888,In tune,0
+889,In tune,0
+890,Sharp,0
+891,Flat,0
+892,Sharp,0
+893,Flat,0
+894,In tune,0
+895,In tune,0
+896,In tune,0
+897,In tune,0
+898,Sharp,0
+899,Flat,0
+900,Sharp,0
+901,Flat,0
+902,In tune,0
+903,In tune,0
+904,In tune,0
+905,In tune,0
+906,Sharp,2
+907,Flat,0
+908,Sharp,0
+909,Flat,0
+910,In tune,0
+911,In tune,0
+912,In tune,0
+913,In tune,0
+914,Sharp,0
+915,Flat,0
+916,Sharp,0
+917,Flat,0
+918,In tune,0
+919,In tune,0
+920,In tune,0
+921,In tune,0
+922,Sharp,0
+923,Flat,0
+924,Sharp,0
+925,Flat,0
+926,In tune,0
+927,In tune,0
+928,In tune,0
+929,In tune,0
+930,Sharp,0
+931,Flat,0
+932,Sharp,0
+933,Flat,0
+934,In tune,0
+935,In tune,0
+936,In tune,0
+937,In tune,0
+938,Sharp,0
+939,Flat,0
+940,Sharp,0
+941,Flat,0
+942,In tune,0
+943,In tune,0
+944,In tune,0
+945,In tune,2
+946,Sharp,0
+947,Flat,0
+948,Sharp,0
+949,Flat,0
+950,In tune,0
+951,In tune,0
+952,In tune,2
+953,In tune,0
+954,Sharp,0
+955,Flat,0
+956,Sharp,0
+957,Flat,0
+958,In tune,0
+959,In tune,0
+960,In tune,0
+961,In tune,0
+962,Sharp,0
+963,Flat,0
+964,Sharp,0
+965,Flat,0
+966,In tune,0
+967,In tune,0
+968,In tune,0
+969,In tune,0
+970,Sharp,0
+971,Flat,0
+972,Sharp,0
+973,Flat,0
+974,In tune,0
+975,In tune,0
+976,In tune,2
+977,In tune,2
+978,Sharp,0
+979,Flat,0
+980,Sharp,0
+981,Flat,0
+982,In tune,0
+983,In tune,0
+984,In tune,0
+985,In tune,2
+986,Sharp,1
+987,Flat,0
+988,Sharp,0
+989,Flat,0
+990,In tune,0
+991,In tune,0
+992,In tune,0
+993,In tune,2
+994,Sharp,0
+995,Flat,0
+996,Sharp,0
+997,Flat,0
+998,In tune,0
+999,In tune,0
+1000,In tune,0
+1001,In tune,0
+1002,Sharp,0
+1003,Flat,0
+1004,Sharp,0
+1005,Flat,0
+1006,In tune,0
+1007,In tune,0
+1008,In tune,0
+1009,In tune,0
+1010,Sharp,0
+1011,Flat,0
+1012,Sharp,0
+1013,Flat,0
+1014,In tune,0
+1015,In tune,2
+1016,In tune,0
+1017,In tune,2
+1018,Sharp,0
+1019,Flat,0
+1020,Sharp,0
+1021,Flat,0
+1022,In tune,0
+1023,In tune,0
+1024,In tune,0
+1025,In tune,0
+1026,Sharp,0
+1027,Flat,0
+1028,Sharp,0
+1029,Flat,0
+1030,In tune,0
+1031,In tune,0
+1032,In tune,0
+1033,In tune,0
+1034,Sharp,0
+1035,Flat,0
+1036,Sharp,0
+1037,Flat,0
+1038,In tune,0
+1039,In tune,0
+1040,In tune,0
+1041,In tune,2
+1042,Sharp,0
+1043,Flat,0
+1044,Sharp,0
+1045,Flat,0
+1046,In tune,0
+1047,In tune,0
+1048,In tune,0
+1049,In tune,0
+1050,Sharp,0
+1051,Flat,0
+1052,Sharp,0
+1053,Flat,0
+1054,In tune,0
+1055,In tune,0
+1056,In tune,0
+1057,In tune,2
+1058,Sharp,0
+1059,Flat,0
+1060,Sharp,0
+1061,Flat,0
+1062,In tune,0
+1063,In tune,0
+1064,In tune,0
+1065,In tune,2
+1066,Sharp,0
+1067,Flat,0
+1068,Sharp,0
+1069,Flat,0
+1070,In tune,0
+1071,In tune,0
+1072,In tune,0
+1073,In tune,0
+1074,Sharp,0
+1075,Flat,0
+1076,Sharp,0
+1077,Flat,0
+1078,In tune,0
+1079,In tune,0
+1080,In tune,0
+1081,In tune,0
+1082,Sharp,0
+1083,Flat,0
+1084,Sharp,0
+1085,Flat,0
+1086,In tune,0
+1087,In tune,0
+1088,In tune,0
+1089,In tune,0
+1090,Sharp,0
+1091,Flat,0
+1092,Sharp,0
+1093,Flat,0
+1094,In tune,0
+1095,In tune,0
+1096,In tune,0
+1097,In tune,0
+1098,Sharp,0
+1099,Flat,0
+1100,Sharp,0
+1101,Flat,0
+1102,In tune,0
+1103,In tune,0
+1104,In tune,0
+1105,In tune,0
+1106,Sharp,0
+1107,Flat,0
+1108,Sharp,0
+1109,Flat,0
+1110,In tune,0
+1111,In tune,0
+1112,In tune,0
+1113,In tune,0
+1114,Sharp,0
+1115,Flat,0
+1116,Sharp,0
+1117,Flat,0
+1118,In tune,0
+1119,In tune,0
+1120,In tune,2
+1121,In tune,0
+1122,Sharp,0
+1123,Flat,0
+1124,Sharp,0
+1125,Flat,0
+1126,In tune,0
+1127,In tune,0
+1128,In tune,0
+1129,In tune,0
+1130,Sharp,0
+1131,Flat,0
+1132,Sharp,0
+1133,Flat,0
+1134,In tune,0
+1135,In tune,0
+1136,In tune,0
+1137,In tune,2
+1138,In tune,16
+1139,Flat,0
+1140,In tune,18
+1141,Flat,0
+1142,In tune,0
+1143,In tune,0
+1144,In tune,0
+1145,In tune,0
+1146,In tune,16
+1147,Flat,0
+1148,In tune,18
+1149,Flat,0
+1150,In tune,0
+1151,In tune,0
+1152,In tune,0
+1153,In tune,0
+1154,Sharp,0
+1155,Flat,0
+1156,Sharp,0
+1157,Flat,0
+1158,In tune,0
+1159,In tune,0
+1160,In tune,0
+1161,In tune,0
+1162,Sharp,0
+1163,Flat,0
+1164,Sharp,0
+1165,Flat,0
+1166,In tune,0
+1167,In tune,0
+1168,In tune,0
+1169,In tune,0
+1170,Sharp,0
+1171,Flat,0
+1172,Sharp,0
+1173,Flat,0
+1174,In tune,0
+1175,In tune,0
+1176,In tune,0
+1177,In tune,0
+1178,Sharp,0
+1179,Flat,0
+1180,Sharp,0
+1181,Flat,0
+1182,In tune,0
+1183,In tune,0
+1184,In tune,0
+1185,In tune,0
+1186,Sharp,0
+1187,Flat,0
+1188,Sharp,0
+1189,Flat,0
+1190,In tune,0
+1191,In tune,0
+1192,In tune,0
+1193,In tune,0
+1194,Sharp,0
+1195,Flat,0
+1196,Sharp,0
+1197,Flat,0
+1198,In tune,0
+1199,In tune,0
+1200,In tune,0
+1201,In tune,0
+1202,Sharp,0
+1203,Flat,0
+1204,Sharp,0
+1205,Flat,0
+1206,In tune,0
+1207,In tune,0
+1208,In tune,0
+1209,In tune,0
+1210,Sharp,0
+1211,Flat,0
+1212,Sharp,0
+1213,Flat,0
+1214,In tune,0
+1215,In tune,0
+1216,In tune,0
+1217,In tune,0
+1218,Sharp,0
+1219,Flat,0
+1220,Sharp,0
+1221,Flat,0
+1222,In tune,0
+1223,In tune,0
+1224,In tune,0
+1225,In tune,0
+1226,Sharp,0
+1227,Flat,0
+1228,Sharp,0
+1229,Flat,0
+1230,In tune,0
+1231,In tune,0
+1232,In tune,0
+1233,In tune,0
+1234,Sharp,4
+1235,Flat,0
+1236,Sharp,0
+1237,Flat,0
+1238,In tune,0
+1239,In tune,0
+1240,In tune,0
+1241,In tune,0
+1242,Sharp,0
+1243,Flat,0
+1244,Sharp,0
+1245,Flat,0
+1246,In tune,0
+1247,In tune,0
+1248,In tune,0
+1249,In tune,0
+1250,Sharp,0
+1251,Flat,0
+1252,Sharp,0
+1253,Flat,0
+1254,In tune,0
+1255,In tune,0
+1256,In tune,0
+1257,In tune,2
+1258,Sharp,0
+1259,Flat,0
+1260,Sharp,0
+1261,Flat,0
+1262,In tune,0
+1263,In tune,0
+1264,In tune,0
+1265,In tune,0
+1266,Sharp,0
+1267,Flat,0
+1268,Sharp,0
+1269,Flat,0
+1270,In tune,0
+1271,In tune,0
+1272,In tune,0
+1273,In tune,0
+1274,Sharp,0
+1275,Flat,0
+1276,Sharp,0
+1277,Flat,0
+1278,In tune,0
+1279,In tune,0
+1280,In tune,0
+1281,In tune,0
+1282,Sharp,0
+1283,Flat,0
+1284,Sharp,0
+1285,Flat,0
+1286,In tune,0
+1287,In tune,0
+1288,In tune,2
+1289,In tune,0
+1290,Sharp,0
+1291,Flat,0
+1292,Sharp,0
+1293,Flat,0
+1294,In tune,0
+1295,In tune,0
+1296,In tune,0
+1297,In tune,2
+1298,Sharp,1
+1299,Flat,0
+1300,Sharp,0
+1301,Flat,0
+1302,In tune,0
+1303,In tune,0
+1304,In tune,0
+1305,In tune,0
+1306,Sharp,0
+1307,Flat,0
+1308,Sharp,0
+1309,Flat,0
+1310,In tune,0
+1311,In tune,0
+1312,In tune,0
+1313,In tune,0
+1314,Sharp,0
+1315,Flat,0
+1316,Sharp,0
+1317,Flat,0
+1318,In tune,0
+1319,In tune,0
+1320,In tune,0
+1321,In tune,0
+1322,Sharp,0
+1323,Flat,0
+1324,Sharp,0
+1325,Flat,0
+1326,In tune,0
+1327,In tune,0
+1328,In tune,0
+1329,In tune,2
+1330,Sharp,0
+1331,Flat,0
+1332,Sharp,0
+1333,Flat,0
+1334,In tune,0
+1335,In tune,0
+1336,In tune,0
+1337,In tune,2
+1338,Sharp,0
+1339,Flat,0
+1340,Sharp,0
+1341,Flat,0
+1342,In tune,0
+1343,In tune,0
+1344,In tune,0
+1345,In tune,0
+1346,Sharp,0
+1347,Flat,0
+1348,Sharp,0
+1349,Flat,0
+1350,In tune,0
+1351,In tune,0
+1352,In tune,0
+1353,In tune,0
+1354,Sharp,0
+1355,Flat,0
+1356,Sharp,0
+1357,Flat,0
+1358,In tune,0
+1359,In tune,0
+1360,In tune,0
+1361,In tune,0
+1362,Sharp,0
+1363,Flat,0
+1364,Sharp,0
+1365,Flat,0
+1366,In tune,0
+1367,In tune,0
+1368,In tune,0
+1369,In tune,2
+1370,Sharp,0
+1371,Flat,0
+1372,Sharp,0
+1373,Flat,0
+1374,In tune,0
+1375,In tune,0
+1376,In tune,0
+1377,In tune,0
+1378,Sharp,0
+1379,Flat,0
+1380,Sharp,0
+1381,Flat,0
+1382,In tune,0
+1383,In tune,0
+1384,In tune,2
+1385,In tune,0
+1386,Sharp,0
+1387,Flat,0
+1388,Sharp,0
+1389,Flat,0
+1390,In tune,0
+1391,In tune,0
+1392,In tune,2
+1393,In tune,0
+1394,Sharp,0
+1395,Flat,0
+1396,Sharp,0
+1397,Flat,0
+1398,In tune,0
+1399,In tune,0
+1400,In tune,2
+1401,In tune,0
+1402,Sharp,0
+1403,Flat,0
+1404,Sharp,0
+1405,Flat,0
+1406,In tune,0
+1407,In tune,0
+1408,In tune,0
+1409,In tune,0
+1410,Sharp,0
+1411,Flat,0
+1412,Sharp,0
+1413,Flat,0
+1414,In tune,0
+1415,In tune,0
+1416,In tune,0
+1417,In tune,0
+1418,Sharp,0
+1419,Flat,0
+1420,Sharp,0
+1421,Flat,0
+1422,In tune,0
+1423,In tune,0
+1424,In tune,0
+1425,In tune,0
+1426,Sharp,0
+1427,Flat,0
+1428,Sharp,0
+1429,Flat,0
+1430,In tune,0
+1431,In tune,0
+1432,In tune,0
+1433,In tune,0
+1434,Sharp,0
+1435,Flat,0
+1436,Sharp,0
+1437,Flat,0
+1438,In tune,0
+1439,In tune,0
+1440,In tune,0
+1441,In tune,0
+1442,Sharp,0
+1443,Flat,0
+1444,Sharp,0
+1445,Flat,0
+1446,In tune,0
+1447,In tune,0
+1448,In tune,0
+1449,In tune,0
+1450,In tune,18
+1451,Flat,0
+1452,In tune,18
+1453,Flat,0
+1454,In tune,0
+1455,In tune,0
+1456,In tune,0
+1457,In tune,0
+1458,In tune,16
+1459,Flat,0
+1460,In tune,17
+1461,Flat,0
+1462,In tune,0
+1463,In tune,0
+1464,In tune,0
+1465,In tune,0
+1466,Sharp,0
+1467,Flat,0
+1468,Sharp,0
+1469,Flat,0
+1470,In tune,0
+1471,In tune,0
+1472,In tune,0
+1473,In tune,0
+1474,Sharp,0
+1475,Flat,0
+1476,Sharp,0
+1477,Flat,0
+1478,In tune,0
+1479,In tune,0
+1480,In tune,0
+1481,In tune,0
+1482,Sharp,0
+1483,Flat,0
+1484,Sharp,0
+1485,Flat,0
+1486,In tune,0
+1487,In tune,0
+1488,In tune,0
+1489,In tune,0
+1490,Sharp,0
+1491,Flat,0
+1492,Sharp,0
+1493,Flat,0
+1494,In tune,0
+1495,In tune,0
+1496,In tune,0
+1497,In tune,0
+1498,Sharp,0
+1499,Flat,0
+1500,Sharp,0
+1501,Flat,0
+1502,In tune,0
+1503,In tune,0
+1504,In tune,0
+1505,In tune,0
+1506,Sharp,0
+1507,Flat,0
+1508,Sharp,0
+1509,Flat,0
+1510,In tune,0
+1511,In tune,0
+1512,In tune,0
+1513,In tune,0
+1514,Sharp,0
+1515,Flat,0
+1516,Sharp,0
+1517,Flat,0
+1518,In tune,0
+1519,In tune,0
+1520,In tune,0
+1521,In tune,0
+1522,Sharp,0
+1523,Flat,0
+1524,Sharp,0
+1525,Flat,0
+1526,In tune,0
+1527,In tune,0
+1528,In tune,0
+1529,In tune,0
+1530,Sharp,0
+1531,Flat,0
+1532,Sharp,0
+1533,Flat,0
+1534,In tune,0
+1535,In tune,0
+1536,In tune,0
+1537,In tune,0
+1538,Sharp,0
+1539,Flat,0
+1540,Sharp,0
+1541,Flat,0
+1542,In tune,0
+1543,In tune,0
+1544,In tune,0
+1545,In tune,0
+1546,Sharp,4
+1547,Flat,0
+1548,Sharp,0
+1549,Flat,0
+1550,In tune,0
+1551,In tune,0
+1552,In tune,0
+1553,In tune,0
+1554,Sharp,0
+1555,Flat,0
+1556,Sharp,0
+1557,Flat,0
+1558,In tune,0
+1559,In tune,0
+1560,In tune,0
+1561,In tune,0
+1562,Sharp,0
+1563,Flat,0
+1564,Sharp,0
+1565,Flat,0
