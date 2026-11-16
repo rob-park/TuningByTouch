@@ -1,0 +1,8 @@
+Condition,Category,Start freq (Hz),Jump (cents),Planned,Valid,Excluded (status:count),Mean delay (ms),Median (ms),SD (ms),Min (ms),Max (ms),% under target / controls quiet,Trials with false triggers,Total false triggers,Note-off triggers (controls)
+A4_20c,pitch,440.00,20.00,10,0,NO_MOTOR:2; ALREADY_BUZZING:8,NaN,NaN,NaN,NaN,NaN,N/A,10,249,N/A
+G3_20c,pitch,196.00,20.00,10,0,ALREADY_BUZZING:10,NaN,NaN,NaN,NaN,NaN,N/A,10,10,N/A
+A6_20c,pitch,1760.00,20.00,10,8,ALREADY_BUZZING:2,7.33,7.33,0.00,7.33,7.33,100%,10,65,N/A
+A4_6c,pitch_report,440.00,6.00,5,0,ALREADY_BUZZING:5,NaN,NaN,NaN,NaN,NaN,N/A,5,154,N/A
+A4_0c,control,440.00,0.00,4,4,none,NaN,NaN,NaN,NaN,NaN,0/4 quiet,4,225,14
+G3_0c,control,196.00,0.00,3,3,none,NaN,NaN,NaN,NaN,NaN,0/3 quiet,3,3,8
+A6_0c,control,1760.00,0.00,3,3,none,NaN,NaN,NaN,NaN,NaN,0/3 quiet,3,16,21

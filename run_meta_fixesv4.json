@@ -1,0 +1,184 @@
+{
+  "run_tag": "fixesv4",
+  "started": "2026-11-15T23:58:57",
+  "python": "3.14.0",
+  "sounddevice": "0.5.6",
+  "devices": {
+    "mic": "Microphone (HD Pro Webcam C920)",
+    "spk": "Speakers (EDIFIER R19BT)"
+  },
+  "sr": 48000,
+  "params": {
+    "RUN_TAG": "fixesv4",
+    "MIC_DEV": 1,
+    "SPK_DEV": 3,
+    "CONDITIONS": [
+      [
+        "A4_20c",
+        "pitch",
+        440.0,
+        20.0,
+        10
+      ],
+      [
+        "G3_20c",
+        "pitch",
+        196.0,
+        20.0,
+        10
+      ],
+      [
+        "A6_20c",
+        "pitch",
+        1760.0,
+        20.0,
+        10
+      ],
+      [
+        "A4_6c",
+        "pitch_report",
+        440.0,
+        6.0,
+        5
+      ],
+      [
+        "A4_0c",
+        "control",
+        440.0,
+        0.0,
+        4
+      ],
+      [
+        "G3_0c",
+        "control",
+        196.0,
+        0.0,
+        3
+      ],
+      [
+        "A6_0c",
+        "control",
+        1760.0,
+        0.0,
+        3
+      ]
+    ],
+    "SHUFFLE_SEED": 20261116,
+    "INTER_TRIAL_GAP": 2.0,
+    "SR": 48000,
+    "PLOTS_DIR": "trial_plots_fixesv4",
+    "WAVS_DIR": "trial_wavs_fixesv4",
+    "PRE_PAD": 0.5,
+    "DUR1": 1.5,
+    "DUR2": 1.5,
+    "POST_PAD": 1.0,
+    "FADE": 0.01,
+    "MOTOR_LOW": 1180.0,
+    "MOTOR_HIGH": 1250.0,
+    "WARMUP_CALLS": 3,
+    "WARMUP_LEN": 0.5,
+    "TONE_HALF_BW": 50.0,
+    "TONE_HALF_BW_LOW": 12.0,
+    "LOW_FREQ_CUTOFF": 250.0,
+    "TONE_K_LOW": 2.0,
+    "TONE_K_HIGH": 4.0,
+    "TONE_REL_FRAC": 0.25,
+    "TONE_MIN_SUSTAIN": 0.02,
+    "TONE_MIN_SNR_DB": 10.0,
+    "TONE_NOISE_WIN": [
+      0.1,
+      0.4
+    ],
+    "TONE_SEARCH_WIN": [
+      0.55,
+      1.3
+    ],
+    "TONE_VALID_WIN": [
+      0.6,
+      1.2
+    ],
+    "TONE_LEVEL_WIN": [
+      0.3,
+      1.3
+    ],
+    "MOTOR_REL_FRAC": 0.15,
+    "MOTOR_K": 3.0,
+    "MOTOR_MIN_SUSTAIN": 0.005,
+    "MOTOR_BASE_WIN": [
+      -0.6,
+      -0.1
+    ],
+    "MOTOR_PRECHECK_WIN": [
+      -0.3,
+      -0.05
+    ],
+    "MOTOR_PRE_SUSTAIN": 0.02,
+    "MOTOR_SEARCH_LEN": 0.5,
+    "MOTOR_MIN_SNR_DB": 12.0,
+    "FALSE_TRIG_MIN": 0.01,
+    "SCAN_END_GUARD": 0.05,
+    "CLIP_LEVEL": 0.99,
+    "TARGET_MS": 100.0
+  },
+  "trial_order": [
+    "Trial_G3_20c_05",
+    "Trial_A6_20c_06",
+    "Trial_A6_0c_01",
+    "Trial_A4_6c_05",
+    "Trial_A6_0c_02",
+    "Trial_G3_20c_04",
+    "Trial_G3_20c_10",
+    "Trial_A4_20c_01",
+    "Trial_G3_20c_09",
+    "Trial_A4_0c_01",
+    "Trial_A4_6c_03",
+    "Trial_A6_20c_01",
+    "Trial_A6_0c_03",
+    "Trial_G3_0c_03",
+    "Trial_G3_20c_02",
+    "Trial_A4_0c_04",
+    "Trial_G3_20c_06",
+    "Trial_G3_20c_03",
+    "Trial_A4_20c_03",
+    "Trial_A6_20c_04",
+    "Trial_A4_20c_06",
+    "Trial_A4_6c_01",
+    "Trial_A4_20c_10",
+    "Trial_A4_20c_08",
+    "Trial_G3_20c_07",
+    "Trial_A4_20c_04",
+    "Trial_G3_20c_08",
+    "Trial_A6_20c_08",
+    "Trial_A4_6c_04",
+    "Trial_G3_0c_01",
+    "Trial_A4_6c_02",
+    "Trial_A6_20c_03",
+    "Trial_A6_20c_02",
+    "Trial_A6_20c_05",
+    "Trial_G3_20c_01",
+    "Trial_A6_20c_07",
+    "Trial_A6_20c_09",
+    "Trial_A4_20c_05",
+    "Trial_A4_20c_07",
+    "Trial_A4_20c_09",
+    "Trial_A6_20c_10",
+    "Trial_A4_0c_03",
+    "Trial_A4_0c_02",
+    "Trial_A4_20c_02",
+    "Trial_G3_0c_02"
+  ],
+  "status_codes": {
+    "OK": "Tone and motor onset both detected; delay is valid.",
+    "REC_ERROR": "sounddevice playrec raised an exception or returned bad data.",
+    "CLIPPED": "Mic recording clipped (|x| >= 0.99); envelope timing unreliable.",
+    "NO_TONE": "Tone envelope never stayed above threshold in the search window.",
+    "LOW_TONE_SNR": "Tone too weak vs room noise (< 10 dB SNR) to time reliably.",
+    "TONE_OUT_OF_WINDOW": "Tone onset found outside the expected 0.6-1.2 s window.",
+    "ALREADY_BUZZING": "Motor above floor+12 dB AND above 15% of the post-jump buzz level for 20 ms in the last 300 ms before the jump.",
+    "NO_MOTOR": "No motor buzz >= 12 dB above baseline within 500 ms after the jump.",
+    "CONTROL_QUIET": "Control (no pitch change): no motor blip >= 10 ms. PASS.",
+    "CONTROL_FALSE_TRIGGER": "Control (no pitch change): motor blip(s) >= 10 ms. FAIL.",
+    "ANALYSIS_ERROR": "Unexpected exception during analysis (traceback in log)."
+  },
+  "warmup_ok_calls": 3
+}

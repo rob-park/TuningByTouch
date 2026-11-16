@@ -1,0 +1,8 @@
+Condition,Category,Start freq (Hz),Jump (cents),Planned,Valid,Excluded (status:count),Mean delay (ms),Median (ms),SD (ms),Min (ms),Max (ms),% under target / controls quiet,Trials with false triggers,Total false triggers,Note-off triggers (controls)
+A4_20c,pitch,440.00,20.00,10,10,none,65.69,68.08,9.17,47.37,76.21,100%,0,0,N/A
+G3_20c,pitch,196.00,20.00,10,10,none,55.17,56.25,7.51,43.17,67.44,100%,0,0,N/A
+A6_20c,pitch,1760.00,20.00,10,10,none,60.16,56.05,8.17,51.92,72.35,100%,0,0,N/A
+A4_6c,pitch_report,440.00,6.00,5,5,none,143.07,140.92,11.45,130.15,157.73,N/A,0,0,N/A
+A4_0c,control,440.00,0.00,4,4,none,NaN,NaN,NaN,NaN,NaN,4/4 quiet,0,0,2
+G3_0c,control,196.00,0.00,3,3,none,NaN,NaN,NaN,NaN,NaN,3/3 quiet,0,0,0
+A6_0c,control,1760.00,0.00,3,3,none,NaN,NaN,NaN,NaN,NaN,3/3 quiet,0,0,0

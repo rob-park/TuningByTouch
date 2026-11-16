@@ -34,6 +34,7 @@ float cents_history[HISTORY_SIZE] = {0};
 int h_idx = 0;
 int h_count = 0;
 int last_note = -999;
+int settle = 0;
 
 void calc_diff() {
     for (int tau = 1; tau <= TAU_MAX; tau++) {
@@ -136,6 +137,7 @@ void reset_state() {
     h_count = 0;
     h_idx = 0;
     last_note = -999;
+    settle = 0;
     update_motors(IN_TUNE);
 }
 
@@ -213,6 +215,12 @@ void loop() {
         reset_state();
     }
     last_note = nearest_note;
+
+    if (settle > 0) {
+        settle--;
+        Serial.printf("%.2f,%.2f,%.3f,%lu,%d\n", freq, cents, conf, calc_us, (int)current_state);
+        return;
+    }
 
     cents_history[h_idx] = cents;
     h_idx = (h_idx + 1) % HISTORY_SIZE;
