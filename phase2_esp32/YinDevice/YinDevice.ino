@@ -3,13 +3,13 @@
 #include <Wire.h>
 #include <Haptic_Driver.h>
 
-#define I2S_SCK  14
-#define I2S_WS   15
-#define I2S_SD   13
+#define I2S_SCK   14
+#define I2S_WS    15
+#define I2S_SD    13
 #define I2S_PORT I2S_NUM_0
 
-Haptic_Driver motor1; // sharp -> wire (pins 8, 9)
-Haptic_Driver motor2; // flat  -> wire1 (pins 17, 18)
+Haptic_Driver motor1; 
+Haptic_Driver motor2; 
 
 const int   SAMPLE_RATE = 48000;
 const int   CHUNK_SIZE  = 1024;
@@ -148,11 +148,9 @@ void setup() {
 
     if (!motor1.begin(Wire)) {
         Serial.println("err: motor 1 dead");
-        while(1) { delay(500); }
     }
     if (!motor2.begin(Wire1)) {
         Serial.println("err: motor 2 dead");
-        while(1) { delay(500); }
     }
 
     motor1.defaultMotor();
@@ -163,7 +161,6 @@ void setup() {
     motor2.enableFreqTrack(false);
     motor2.setOperationMode(DRO_MODE);
 
-    // matched exactly to sample rate test config (dma_buf_count = 8)
     const i2s_config_t i2s_config = {
         .mode = (i2s_mode_t)(I2S_MODE_MASTER | I2S_MODE_RX),
         .sample_rate = SAMPLE_RATE,
@@ -193,8 +190,9 @@ void setup() {
 
 void loop() {
     size_t bytes_read = 0;
-    i2s_read(I2S_PORT, &raw, sizeof(raw), &bytes_read, portMAX_DELAY);
-
+    // Added a 50ms timeout so it never permanently freezes if the mic glitches
+    i2s_read(I2S_PORT, &raw, sizeof(raw), &bytes_read, pdMS_TO_TICKS(50));
+    
     uint32_t t_start = micros();
     float freq = 0.0f;
     float conf = 1.0f;
@@ -220,7 +218,6 @@ void loop() {
     h_idx = (h_idx + 1) % HISTORY_SIZE;
     if (h_count < HISTORY_SIZE) h_count++;
 
-    // require at least 3 readings before letting state change
     if (h_count >= 3) {
         float total = 0.0f;
         for (int i = 0; i < h_count; i++) {

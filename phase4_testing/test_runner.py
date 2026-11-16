@@ -9,7 +9,7 @@ PORT = "COM6"
 BAUD = 115200
 TONES_DIR = os.path.join(os.path.dirname(__file__), "..", "phase1_laptop", "tones")
 ANSWER_KEY = os.path.join(TONES_DIR, "answer_key.csv")
-RESULTS_PATH = os.path.join(os.path.dirname(__file__), "results_motors_off.csv")
+RESULTS_PATH = os.path.join(os.path.dirname(__file__), "results_motors_on.csv")
 
 REPEATS = 5
 SILENCE_S = 1.0
@@ -35,13 +35,15 @@ def main():
         with open(ANSWER_KEY, mode="r", encoding="utf-8") as f:
             tones = list(csv.DictReader(f))
             
-        header = ["filename", "note", "midi", "offset_cents", "true_freq_hz", "repeat", "t_s", "freq_hz", "cents", "confidence", "calc_us"]
+        header = ["filename", "note", "midi", "offset_cents", "true_freq_hz", "repeat", "t_s", "freq_hz", "cents", "confidence", "calc_us", "state"]
         
         with open(RESULTS_PATH, mode="w", newline="", encoding="utf-8") as out_f:
             writer = csv.writer(out_f)
             writer.writerow(header)
             
             total_count = 0
+            skipped_consecutive = 0
+            
             for rep in range(1, REPEATS + 1):
                 for tone in tones:
                     time.sleep(SILENCE_S)
@@ -49,8 +51,13 @@ def main():
                     
                     for t, line in readings:
                         parts = line.split(",")
-                        if len(parts) != 4:
+                        if len(parts) != 5:
+                            skipped_consecutive += 1
+                            if skipped_consecutive > 10:
+                                print(f"WARNING: Skipped {skipped_consecutive} consecutive lines! Check serial format. Last bad line: {line}")
                             continue
+                        
+                        skipped_consecutive = 0  # reset on valid line
                         row = [
                             tone["filename"],
                             tone["note"],
@@ -69,7 +76,7 @@ def main():
                     if total_count % 25 == 0:
                         print(f"Processed {total_count}/{len(tones) * REPEATS} tones...")
                         
-        print("Test complete! Results saved to results_motors_off.csv")
+        print(f"Test complete! Results saved to {os.path.basename(RESULTS_PATH)}")
 
     except KeyboardInterrupt:
         print("\nInterrupted by user, shutting down safely...")
