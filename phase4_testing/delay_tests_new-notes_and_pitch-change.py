@@ -14,11 +14,11 @@ MIC_DEV = 1   # MME C920 Webcam Mic
 SPK_DEV = 3   # MME Edifier Speakers
 devCfg = (MIC_DEV, SPK_DEV)
 
-PLOTS_DIR = "trial_plots"
+PLOTS_DIR = f"trial_plots_{RUN_TAG}"
 if not os.path.exists(PLOTS_DIR):
     os.makedirs(PLOTS_DIR)
 
-WAVS_DIR = "trial_wavs"
+WAVS_DIR = f"trial_wavs_{RUN_TAG}"
 if not os.path.exists(WAVS_DIR):
     os.makedirs(WAVS_DIR)
 
@@ -167,7 +167,7 @@ def main():
     for t_num, sf_hz, ef_hz, cents in extra_cfgs:
         trials.append((t_num, sf_hz, ef_hz, cents, "pitch_extra"))
 
-    csv_name = "results_pitch_change.csv"
+    csv_name = f"results_pitch_change_{RUN_TAG}.csv"
     with open(csv_name, mode="w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["Trial", "Start freq (Hz)", "End freq (Hz)", "Jump (cents)", "Jump time in recording (ms)", "Vibration start (ms)", "Delay (ms)", "Target (ms)", "Met target?"])
