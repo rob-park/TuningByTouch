@@ -5,14 +5,15 @@ import serial
 import soundfile as sf
 import sounddevice as sd
 
-PORT = "COM6"
+PORT = "COM6"   # <- set to the port that works today
 BAUD = 115200
 TONES_DIR = os.path.join(os.path.dirname(__file__), "..", "phase1_laptop", "tones")
 ANSWER_KEY = os.path.join(TONES_DIR, "answer_key.csv")
-RESULTS_PATH = os.path.join(os.path.dirname(__file__), "results_motors_on.csv")
-
-REPEATS = 5
+RESULTS_PATH = os.path.join(os.path.dirname(__file__), "results_motors_on_rerun.csv")
 SILENCE_S = 1.0
+
+# (midi, offset_cents, repeat number it replaces)
+REDO = [(70, -2, 1), (70, 2, 1), (76, -2, 1), (91, -10, 4), (56, -6, 5), (56, 6, 5)]
 
 def test_tone(ser, filename):
     audio, sr = sf.read(os.path.join(TONES_DIR, filename))
@@ -28,61 +29,37 @@ def test_tone(ser, filename):
     return readings
 
 def main():
+    with open(ANSWER_KEY, encoding="utf-8") as f:
+        key = {(int(float(r["midi"])), float(r["offset_cents"])): r for r in csv.DictReader(f)}
+
     ser = serial.Serial(PORT, BAUD, timeout=0.1)
     time.sleep(2)
-    
+    header = ["filename", "note", "midi", "offset_cents", "true_freq_hz", "repeat",
+              "t_s", "freq_hz", "cents", "confidence", "calc_us", "state"]
     try:
-        with open(ANSWER_KEY, mode="r", encoding="utf-8") as f:
-            tones = list(csv.DictReader(f))
-            
-        header = ["filename", "note", "midi", "offset_cents", "true_freq_hz", "repeat", "t_s", "freq_hz", "cents", "confidence", "calc_us", "state"]
-        
-        with open(RESULTS_PATH, mode="w", newline="", encoding="utf-8") as out_f:
-            writer = csv.writer(out_f)
-            writer.writerow(header)
-            
-            total_count = 0
-            skipped_consecutive = 0
-            
-            for rep in range(1, REPEATS + 1):
-                for tone in tones:
-                    time.sleep(SILENCE_S)
-                    readings = test_tone(ser, tone["filename"])
-                    
-                    for t, line in readings:
-                        parts = line.split(",")
-                        if len(parts) != 5:
-                            skipped_consecutive += 1
-                            if skipped_consecutive > 10:
-                                print(f"WARNING: Skipped {skipped_consecutive} consecutive lines! Check serial format. Last bad line: {line}")
-                            continue
-                        
-                        skipped_consecutive = 0  # reset on valid line
-                        row = [
-                            tone["filename"],
-                            tone["note"],
-                            tone["midi"],
-                            tone["offset_cents"],
-                            tone["true_freq_hz"],
-                            rep,
-                            t,
-                            *parts
-                        ]
-                        writer.writerow(row)
-                        
-                    out_f.flush()
-                    total_count += 1
-                    
-                    if total_count % 25 == 0:
-                        print(f"Processed {total_count}/{len(tones) * REPEATS} tones...")
-                        
-        print(f"Test complete! Results saved to {os.path.basename(RESULTS_PATH)}")
-
-    except KeyboardInterrupt:
-        print("\nInterrupted by user, shutting down safely...")
+        with open(RESULTS_PATH, "w", newline="", encoding="utf-8") as out_f:
+            w = csv.writer(out_f)
+            w.writerow(header)
+            for midi, off, rep in REDO:
+                tone = key.get((midi, float(off)))
+                if tone is None:
+                    print(f"not found in answer key: {midi} {off}")
+                    continue
+                time.sleep(SILENCE_S)
+                readings = test_tone(ser, tone["filename"])
+                good = 0
+                for t, line in readings:
+                    parts = line.split(",")
+                    if len(parts) != 5:
+                        continue
+                    good += 1
+                    w.writerow([tone["filename"], tone["note"], tone["midi"], tone["offset_cents"],
+                                tone["true_freq_hz"], rep, t, *parts])
+                out_f.flush()
+                print(f"{tone['filename']} rep {rep}: {good} valid lines")
+        print("Done:", os.path.basename(RESULTS_PATH))
     finally:
         ser.close()
-        print("Serial port closed.")
 
 if __name__ == "__main__":
     main()
